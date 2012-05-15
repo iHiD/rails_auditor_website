@@ -1,0 +1,3 @@
+== Rails Auditor Website
+
+The source code for http://www.railsauditor.org
