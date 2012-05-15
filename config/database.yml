@@ -5,16 +5,16 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  database: rails_audior_website_development
-  username: rails_audior_website
+  database: rails_auditor_website_development
+  username: rails_auditor
   password: password
   encoding: utf8
   host: localhost
 
 test:
   adapter: mysql2
-  database: rails_audior_website_test
-  username: rails_audior_website
+  database: rails_auditor_website_test
+  username: rails_auditor
   password: password
   encoding: utf8
   host: localhost

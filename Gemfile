@@ -5,11 +5,11 @@ gem 'rails'
 gem 'devise'
 
 # Database gems
-gem 'mysql'
+gem 'mysql2'
 gem 'foreigner'
 
 # View gems
-gem 'haml'
+gem 'haml', "3.1.4"
 gem 'jquery-rails'
 
 group :assets do
