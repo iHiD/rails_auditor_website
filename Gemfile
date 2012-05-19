@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 # Core gems
 gem 'rails'
+
+# Authentication
 gem 'devise'
+gem "omniauth-github"
 
 # Database gems
 gem 'mysql2'
