@@ -1,3 +1,21 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$project_bar_height: 40px;
+
+.project_bar {
+  overflow:hidden;
+  background:lightgrey;
+  padding:10px;
+  height:$project_bar_height;
+  h2, .options {
+    margin:0px;
+    line-height:$project_bar_height;
+    height:$project_bar_height;
+    vertical-align:middle;
+  }
+  .options {
+    float:right;
+  }
+}

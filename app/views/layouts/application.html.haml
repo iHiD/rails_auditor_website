@@ -7,7 +7,11 @@
         =csrf_meta_tags
     
     %body
-        %p.notice= notice
-        %p.alert= alert
+        %header
+        #container
+            -if notice
+                %p.notice= notice
+            -if alert
+                %p.alert= alert
 
-        =yield
+            =content_for?(:content) ? yield(:content) : yield

@@ -17,7 +17,13 @@ body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; 
+  line-height: 18px;
+  margin:0px;
+}
+
+#container {
+  width:1400px;
+  margin:0px auto;
 }
 
 p, ol, ul, td {
@@ -49,6 +55,16 @@ div.field, div.actions {
 
 #notice {
   color: green; 
+  background: lightgreen;
+  margin: 0px;
+  padding: 10px;
+}
+
+#alert {
+  color: red; 
+  background: lightred;
+  margin: 0px;
+  padding: 10px;
 }
 
 .field_with_errors {
