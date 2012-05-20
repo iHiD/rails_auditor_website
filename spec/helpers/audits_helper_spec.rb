@@ -10,5 +10,5 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe Project::AuditsHelper do
+describe AuditsHelper do
 end

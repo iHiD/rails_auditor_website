@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   
-  attr_accessible :github_repository, :name
+  attr_accessible :name
+  
+  has_many :audits
 
 end

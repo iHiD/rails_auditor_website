@@ -10,7 +10,10 @@ describe "projects/show" do
 
   it "renders attributes in <p>" do
     render
-    rendered.should have_selector("p", content: "Name".to_s)
-    rendered.should have_selector("p", content: "Github Repository".to_s)
+    rendered.should have_selector("p")
+    rendered.should have_selector("p")
+    
+    rendered.should have_selector(".audits")
+    rendered.should have_selector(".no_audits")
   end
 end

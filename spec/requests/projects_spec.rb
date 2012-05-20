@@ -7,4 +7,17 @@ describe "Projects" do
       page.status_code.should be(200)
     end
   end
+  describe "Creating a projects" do
+    it "Creates a project" do
+      project_name = "My Project"
+      
+      visit new_project_path
+      fill_in :name, with: project_name
+      click_button :submit
+      
+      page.status_code.should be(200)
+      page.should have_selector '.notice', content: "Project was successfully created."
+      page.should have_selector '.project_bar', content: project_name
+    end
+  end
 end

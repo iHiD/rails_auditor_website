@@ -2,7 +2,12 @@
 %p 
     %strong Name:
     = @project.name
-  
-%p
-    %strong Github repository:
-    =@project.github_repository
+    
+.audits
+    %h3 Audits
+    -if @project.audits.size == 0
+        .no_audits
+            You have not yet run any audits on this project
+            =button_to "Run your first audit", new_project_audit_path(@project), method: :get
+    -else
+    
