@@ -10,8 +10,7 @@ describe "projects/show" do
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(//)
-    rendered.should match(/Github Repository/)
+    rendered.should have_selector("p", content: "Name".to_s)
+    rendered.should have_selector("p", content: "Github Repository".to_s)
   end
 end

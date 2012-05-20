@@ -1,1 +1,1 @@
-Project.create!(name: 'Rails Auditor', '/ihid/rails_auditor_website')
+Project.create!(name: 'Rails Auditor', github_repository: '/ihid/rails_auditor_website')

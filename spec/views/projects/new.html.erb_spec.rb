@@ -12,9 +12,9 @@ describe "projects/new" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => projects_path, :method => "post" do
-      assert_select "input#project_name", :name => "project[name]"
-      assert_select "input#project_github_repository", :name => "project[github_repository]"
+    rendered.should have_selector("form", :action => projects_path, :method => "post") do
+      rendered.should have_selector("input#project_name", :name => "project[name]")
+      rendered.should have_selector("input#project_github_repository", :name => "project[github_repository]")
     end
   end
 end
