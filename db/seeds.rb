@@ -1,0 +1,1 @@
+Project.create!(name: 'Rails Auditor', '/ihid/rails_auditor_website')

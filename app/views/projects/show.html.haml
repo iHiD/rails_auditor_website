@@ -1,0 +1,11 @@
+
+%p 
+    %strong Name:
+    = @project.name
+  
+%p
+    %strong Github repository:
+    =@project.github_repository
+    
+= link_to 'Edit', edit_project_path(@project)
+= link_to 'Back', projects_path
