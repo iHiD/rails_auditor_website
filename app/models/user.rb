@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
          :omniauthable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
 end

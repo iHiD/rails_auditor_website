@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120520144910) do
 
-  create_table "project_audits", :force => true do |t|
+  create_table "audits", :force => true do |t|
     t.integer  "project_id",        :null => false
     t.string   "github_repository", :null => false
     t.string   "github_branch",     :null => false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120520144910) do
     t.datetime "updated_at",        :null => false
   end
 
-  add_index "project_audits", ["project_id"], :name => "index_project_audits_on_project_id"
+  add_index "audits", ["project_id"], :name => "audits_project_id_fk"
 
   create_table "projects", :force => true do |t|
     t.string   "name",       :null => false
@@ -47,5 +47,7 @@ ActiveRecord::Schema.define(:version => 20120520144910) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "audits", "projects", :name => "audits_project_id_fk"
 
 end

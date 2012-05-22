@@ -1,6 +1,6 @@
 class CreateAudits < ActiveRecord::Migration
   def change
-    create_table :project_audits do |t|
+    create_table :audits do |t|
       t.belongs_to :project, null: false
       
       t.string :github_repository, null: false
@@ -8,6 +8,6 @@ class CreateAudits < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :project_audits, :project_id
+    add_foreign_key :audits, :projects, column: :project_id
   end
 end

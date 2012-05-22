@@ -33,7 +33,7 @@ class AuditsController < AbstractControllers::ProjectController
 
     respond_to do |format|
       if @audit.save
-        format.html { redirect_to [@project, @audit], notice: 'Audit was successfully created.' }
+        format.html { redirect_to [@project, @audit], notice: 'Audit is being started.' }
       else
         format.html { render action: "new" }
       end
