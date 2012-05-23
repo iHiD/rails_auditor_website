@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe "projects/show" do
   before(:each) do
-    @project = assign(:project, stub_model(Project,
-      :name => "",
-      :github_repository => "Github Repository"
-    ))
+    @project = FactoryGirl.create(:project)
   end
 
   it "renders attributes in <p>" do
@@ -15,5 +12,14 @@ describe "projects/show" do
     
     rendered.should have_selector(".audits")
     rendered.should have_selector(".no_audits")
+  end
+  
+  it "shows audits" do
+    audit1 = FactoryGirl.create(:audit, { project_id: @project.id })
+    audit2 = FactoryGirl.create(:audit, { project_id: @project.id })
+    render 
+    rendered.should have_selector(".audits")
+    rendered.should_not have_selector(".no_audits")
+    rendered.should have_selector("#audit_#{audit1.id}")
   end
 end

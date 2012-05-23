@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Core gems
 gem 'rails'
+gem 'rails_parser', path: "../parser"
 
 # Authentication
 gem 'devise'

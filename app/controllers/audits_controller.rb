@@ -1,16 +1,6 @@
 class AuditsController < AbstractControllers::ProjectController
   
   before_filter :get_project
-
-=begin  
-  def index
-    @audits = @project.audits
-
-    respond_to do |format|
-      format.html #
-    end
-  end
-=end
   
   def show
     @audit = @project.audits.find(params[:id])
