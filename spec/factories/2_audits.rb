@@ -3,5 +3,6 @@ FactoryGirl.define do
   factory :audit do
     github_repository "ihid/rails_auditor_website"
     github_branch "master"
+    project FactoryGirl.create(:project)
   end
 end

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120520144910) do
     t.integer  "project_id",        :null => false
     t.string   "github_repository", :null => false
     t.string   "github_branch",     :null => false
+    t.string   "status",            :null => false
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

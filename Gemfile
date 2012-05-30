@@ -8,6 +8,9 @@ gem 'rails_parser', path: "../parser"
 gem 'devise'
 gem "omniauth-github"
 
+# Model gems
+gem 'state_machine'
+
 # Database gems
 gem 'mysql2'
 gem 'foreigner'
@@ -23,7 +26,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test, :development do
+group :test do
   #gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec-rails'
   gem "capybara"
