@@ -24,7 +24,7 @@ describe ProjectsController do
   # Project. As you add validations to Project, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {name: "Name"}
+    {name: "Website"}
   end
   
   # This should return the minimal set of values that should be in the session
@@ -32,6 +32,10 @@ describe ProjectsController do
   # ProjectsController. Be sure to keep this updated too.
   def valid_session
     {}
+  end
+
+  before :each do 
+    Project.destroy_all
   end
 
   describe "GET index" do

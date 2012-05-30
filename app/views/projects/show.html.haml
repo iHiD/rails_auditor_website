@@ -12,6 +12,6 @@
     -else
         -@project.audits.each do |audit|
             .audit{id: "audit_#{audit.id}"}
-                .trigger= audit.trigger
+                /.trigger= audit.trigger
                 .created_at= audit.created_at
                 .status= audit.status

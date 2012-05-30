@@ -9,7 +9,7 @@ gem 'devise'
 gem "omniauth-github"
 
 # Model gems
-gem 'state_machine'
+gem 'belongs_to_enum', github: "ihid/belongs_to_enum"
 
 # Database gems
 gem 'mysql2'

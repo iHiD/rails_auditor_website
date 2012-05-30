@@ -6,7 +6,7 @@ class CreateAudits < ActiveRecord::Migration
       t.string :github_repository, null: false
       t.string :github_branch,     null: false
       
-      t.string :status, null: false
+      t.integer :status_id, null: false
       #t.integer :trigger_id, null: false
 
       t.timestamps
