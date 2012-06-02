@@ -14,6 +14,7 @@ describe "projects/new" do
     rendered.should have_selector("form", :action => projects_path, :method => "post") do
       rendered.should have_selector("input#project_name", :name => "project[name]")
       rendered.should have_selector("input#project_github_repository", :name => "project[github_repository]")
+      rendered.should have_selector("input#project_github_branch", :name => "project[github_branch]")
     end
   end
 end

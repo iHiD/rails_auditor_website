@@ -14,5 +14,16 @@
         %br
         = f.text_field :name
         
+    .field
+        =f.label :github_repository
+        %br
+        https://github.com/
+        =f.text_field :github_repository
+
+    .field
+        =f.label :github_branch
+        %br
+        =f.text_field :github_branch
+        
     .actions
         =f.submit

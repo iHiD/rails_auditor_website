@@ -24,7 +24,7 @@ describe AuditsController do
   # @project.audits. As you add validations to @project.audits, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {github_repository: "ihid/ruby_auditor", github_branch: "master"}
+    {}
   end
   
   # This should return the minimal set of values that should be in the session

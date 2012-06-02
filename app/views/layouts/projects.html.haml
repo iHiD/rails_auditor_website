@@ -4,6 +4,8 @@
             =link_to "edit", edit_project_path(@project)
         %h2
             Project: #{@project.name}
+        .github_repository= @project.github_repository
+        .github_branch= @project.github_branch
     =yield
     
 =render :template => 'layouts/application'

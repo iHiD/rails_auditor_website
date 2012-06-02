@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "projects/new" do
+describe "audits/new" do
   before(:each) do
     @project = FactoryGirl.create(:project)
     assign(:project, @project)
@@ -11,8 +11,6 @@ describe "projects/new" do
     render
 
     rendered.should have_selector("form", :action => project_audits_path(@project), :method => "post") do
-      rendered.should have_selector("input#audit_github_repository", :name => "audit[github_repository]")
-      rendered.should have_selector("input#audit_github_branch", :name => "audit[github_branch]")
     end
   end
 end

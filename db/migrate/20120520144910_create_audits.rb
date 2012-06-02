@@ -3,9 +3,6 @@ class CreateAudits < ActiveRecord::Migration
     create_table :audits do |t|
       t.belongs_to :project, null: false
       
-      t.string :github_repository, null: false
-      t.string :github_branch,     null: false
-      
       t.integer :status_id, null: false
       #t.integer :trigger_id, null: false
 

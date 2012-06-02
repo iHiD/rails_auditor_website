@@ -1,15 +1,25 @@
 class Audit < ActiveRecord::Base
   
-  attr_accessible :github_repository, :github_branch 
+  #attr_accessible
   
   belongs_to :project
-  belongs_to_enum :status, [:queued, :processing, :completed]
+  belongs_to_enum :status, [:queued, :cloning, :cloned, :processing, :completed]
   
   before_create do
     self.status_id = Status.queued
   end
   
-  def run
+  def clone
+    self.status_id = Status.cloning
+    save
+    
+    #... Do cloning
+    
+    self.status_id = Status.cloned
+    save
+  end
+  
+  def process
     self.status_id = Status.processing
     save
     
@@ -20,6 +30,8 @@ class Audit < ActiveRecord::Base
   end
   
   def queued?; self.status_id == Status.queued; end
+  def cloning?; self.status_id == Status.cloning; end
+  def cloned?; self.status_id == Status.cloned; end
   def processing?; self.status_id == Status.processing; end
   def completed?; self.status_id == Status.completed; end
 

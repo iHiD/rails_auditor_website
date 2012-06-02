@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(:version => 20120520144910) do
 
   create_table "audits", :force => true do |t|
-    t.integer  "project_id",        :null => false
-    t.string   "github_repository", :null => false
-    t.string   "github_branch",     :null => false
-    t.integer  "status_id",         :null => false
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "project_id", :null => false
+    t.integer  "status_id",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "audits", ["project_id"], :name => "audits_project_id_fk"
 
   create_table "projects", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name",              :null => false
+    t.string   "github_repository", :null => false
+    t.string   "github_branch",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|
