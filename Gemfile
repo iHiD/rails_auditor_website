@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 
 # Core gems
 gem 'rails'
-gem 'rails_parser', path: "../parser"
+if ENV["IHID"]
+  gem 'rails_parser', path: "../parser"
+else
+  gem 'rails_parser', github: "ihid/rails_parser"
+end
 
 # Authentication
 gem 'devise'
