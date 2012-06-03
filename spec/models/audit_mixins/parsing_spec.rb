@@ -24,7 +24,8 @@ describe Audit do
     it "should serialize and store everything" do
       parse_audit(@audit)
       @audit.reload
-      @audit.gems.keys.length.should == 6
+      @audit.gems.size.should == 6
+      @audit.gems.where(name: 'rails').first.details.should == {:name=>"rails", :groups=>[], :version=>"3.2.3"}
       @audit.configuration.keys.length.should == 4
     end
   end

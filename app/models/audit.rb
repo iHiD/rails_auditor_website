@@ -10,10 +10,9 @@ class Audit < ActiveRecord::Base
   include AuditMixins::Parsing
   include AuditMixins::Status
   
-  #attr_accessible
   belongs_to :project
+  has_many :gems
   
-  serialize :gems
   serialize :configuration
   
   def local_repository_path

@@ -16,12 +16,6 @@ describe Audit do
     @audit.queued_for_parsing?.should == true
   end
   
-  it "should move through processing to completed" do
-    @audit.audit
-    @audit.reload
-    @audit.completed?.should == true
-  end
-  
   it "should correctly return ? methods" do
     @audit.status_id = Audit::Status.queued_for_cloning
     @audit.queued_for_cloning?.should == true

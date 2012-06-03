@@ -7,7 +7,9 @@ module AuditMixins::Parsing
     save
     
     parser = RailsParser::Parsers::Rails::ApplicationParser.new(local_repository_path)
-    self.gems = parser.gems
+    parser.gems.each do |key, details|
+      self.gems.create({name: details[:name], details:details}, as: :internal)
+    end
     self.configuration = parser.configuration
     self.save!
     

@@ -4,12 +4,14 @@ module AuditMixins::Auditing
   
   def audit
     self.status_id = Audit::Status.auditing
-    save
+    save!
     
-    #... Do audit
+    self.gems.each do |gem|
+      GemInfo.retrieve(gem.name)
+    end
     
     self.status_id = Audit::Status.completed
-    save
+    save!
   end
 
 end

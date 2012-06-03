@@ -11,12 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120603151207) do
+ActiveRecord::Schema.define(:version => 20120603181635) do
+
+  create_table "audit_gems", :force => true do |t|
+    t.integer  "audit_id",   :null => false
+    t.string   "name",       :null => false
+    t.binary   "details",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "audits", :force => true do |t|
     t.integer  "project_id",    :null => false
     t.integer  "status_id",     :null => false
-    t.binary   "gems"
     t.binary   "configuration"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

@@ -18,8 +18,11 @@ class GemInfo < ActiveRecord::Base
     gem_info.save!
     gem_info
   end
-  class << self
-    handle_asynchronously :retrieve
-  end
   
+  # We want to test things without async for development
+  unless Rails.env.development?
+    class << self
+      handle_asynchronously :retrieve
+    end
+  end  
 end
