@@ -12,36 +12,62 @@
  *= require_tree .
 */
 
+@import 'variables';
+
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin:0px;
+    background-color: $light_color;
+    color: #333;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin:0px;
 }
  
 header {
-  background:lightpink;
-  height:30px;
-  line-height:30px;
+    background:#7D0000;
+    height:30px;
+    line-height:30px;
+    color:$light_color;
+    overflow:hidden;
+    font-size:17px;
+    padding:5px 0px;
+    .profile {
+        float:right;
+        vertical-align:top;
+        height:30px;
+        line-height:30px;
+        font-size:13px;
+    }
+    .settings {
+            
+    }
+}
+
+#header_border {
+    position:absolute;
+    width:100%;
+    height:10px;
+    background:-webkit-linear-gradient(top, #7D0000, rgba(255,255,255,0));
 }
 
 .container {
-  width:1400px;
-  margin:0px auto;
+    width:1400px;
+    margin:0px auto;
+}
+
+body>.container {
 }
 
 .notice {
-  color: green; 
-  background: lightgreen;
-  margin: 0px;
-  padding: 10px;
+    color: green; 
+    background: lightgreen;
+    margin: 0px;
+    padding: 10px;
 }
 
 .alert {
-  color: red; 
-  background: lightred;
-  margin: 0px;
-  padding: 10px;
+    color: red; 
+    background: lightred;
+    margin: 0px;
+    padding: 10px;
 }

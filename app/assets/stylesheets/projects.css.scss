@@ -2,20 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'variables';
+
 $project_bar_height: 40px;
 
-.project_bar {
-  overflow:hidden;
-  background:lightgrey;
-  padding:10px;
-  //height:$project_bar_height;
-  h2, .options {
-    margin:0px;
-    line-height:$project_bar_height;
-    height:$project_bar_height;
-    vertical-align:middle;
-  }
-  .options {
-    float:right;
-  }
+#project_bar {
+    overflow:hidden;
+    padding:10px 0px 0px 0px;
+    
+    h2, .options {
+        margin:0px;
+        line-height:$project_bar_height;
+        height:$project_bar_height;
+        vertical-align:middle;
+    }
+    .options {
+        float:right;
+    }
+    .tabs {
+        border-bottom:1px solid $border_color;
+        margin-top:10px;
+        
+        a {
+            text-decoration:none;
+            padding:10px 20px;
+            background:$dark_color;
+            color:$light_color;
+            display:inline-block;
+            width:100px;
+            text-align:center;
+            position:relative;
+            border-radius:10px 10px 0px 0px;
+            
+            &.selected {
+                color:$dark_color;
+                background:$light_color;
+                border:solid $dark_color;
+                border-width:1px 1px 0px 1px;
+                bottom:-1px;
+            }
+        }
+        
+    }
+}
+
+#project {
+    padding:10px 10px;
+    border: solid $dark_color;
+    border-width: 0px 1px 0px 1px;
 }
