@@ -1,3 +1,15 @@
 // Place all the styles related to the project/audits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.audit_progress {
+    &>div {
+        background:red;
+    }
+    .in_progress {
+        background:yellow;
+    }
+    .completed {
+        background:green;
+    }
+}
