@@ -2,6 +2,8 @@ class AbstractControllers::ProjectController < ApplicationController
   
   before_filter :get_project
   
+  layout 'projects'
+  
   #self.view_paths << "/Users/iHiD/Projects/RailsAuditor/website/app/views/projects"
   
   protected

@@ -5,6 +5,9 @@ class CreateAudits < ActiveRecord::Migration
       
       t.integer :status_id, null: false
       #t.integer :trigger_id, null: false
+      
+      t.binary :gems, null: true
+      t.binary :configuration, null: true
 
       t.timestamps
     end

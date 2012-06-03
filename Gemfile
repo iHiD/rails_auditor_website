@@ -33,3 +33,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
 end
+
+
+# Temporary gems
+gem 'ruby_parser', "3.0.0.a1"
