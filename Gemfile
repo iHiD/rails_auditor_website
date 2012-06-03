@@ -14,6 +14,7 @@ gem 'belongs_to_enum', github: "ihid/belongs_to_enum"
 # Database gems
 gem 'mysql2'
 gem 'foreigner'
+gem 'delayed_job_active_record'
 
 # View gems
 gem 'haml', "3.1.4"
