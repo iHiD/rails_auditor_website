@@ -84,6 +84,7 @@ GEM
     ffi (1.0.11)
     foreigner (1.1.6)
       activerecord (>= 3.0.0)
+    gems (0.7.0)
     haml (3.1.4)
     hashie (1.2.0)
     hike (1.2.1)
@@ -205,6 +206,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   foreigner
+  gems
   haml (= 3.1.4)
   jquery-rails
   mysql2
