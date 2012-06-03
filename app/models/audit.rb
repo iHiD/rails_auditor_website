@@ -11,7 +11,7 @@ class Audit < ActiveRecord::Base
   include AuditMixins::Status
   
   belongs_to :project
-  has_many :gems
+  has_many :gems, dependent: :destroy
   
   serialize :configuration
   

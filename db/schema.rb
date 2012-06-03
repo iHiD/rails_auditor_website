@@ -14,11 +14,12 @@
 ActiveRecord::Schema.define(:version => 20120603181635) do
 
   create_table "audit_gems", :force => true do |t|
-    t.integer  "audit_id",   :null => false
-    t.string   "name",       :null => false
-    t.binary   "details",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "audit_id",    :null => false
+    t.integer  "gem_info_id", :null => false
+    t.string   "name",        :null => false
+    t.binary   "details",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "audits", :force => true do |t|
@@ -48,11 +49,12 @@ ActiveRecord::Schema.define(:version => 20120603181635) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "gem_infos", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "version",    :null => false
-    t.text     "info",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name",         :null => false
+    t.string   "version"
+    t.text     "info"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "retrieved_at"
   end
 
   create_table "projects", :force => true do |t|

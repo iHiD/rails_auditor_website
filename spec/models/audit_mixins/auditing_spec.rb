@@ -12,13 +12,4 @@ describe Audit do
     @audit.completed?.should == true
   end
   
-  it "should retrieve gem information from ruby gems" do
-    GemInfo.destroy_all
-    Delayed::Backend::ActiveRecord::Job.destroy_all
-    
-    parse_audit(@audit)
-    @audit.audit
-    Delayed::Backend::ActiveRecord::Job.count.should == @audit.gems.length
-  end
-  
 end

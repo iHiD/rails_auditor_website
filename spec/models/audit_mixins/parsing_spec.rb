@@ -28,5 +28,13 @@ describe Audit do
       @audit.gems.where(name: 'rails').first.details.should == {:name=>"rails", :groups=>[], :version=>"3.2.3"}
       @audit.configuration.keys.length.should == 4
     end
+  
+    it "should retrieve gem information from ruby gems" do
+      GemInfo.destroy_all
+      Delayed::Backend::ActiveRecord::Job.destroy_all
+    
+      parse_audit(@audit)
+      Delayed::Backend::ActiveRecord::Job.count.should == @audit.gems.length
+    end
   end
 end

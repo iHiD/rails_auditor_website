@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   
   attr_accessible :name, :github_repository, :github_branch 
   
-  has_many :audits
+  has_many :audits, dependent: :destroy
 
   def most_recent_audit    
     unless audit = audits.order("id DESC").first

@@ -1,28 +1,30 @@
 class GemInfo < ActiveRecord::Base
   
-  attr_accessible :name, :version, :info, as: :internal
+  attr_accessible :name, :version, :info, :retrieved_at, as: :internal
     
   # Check if the gem exists in the db. 
   # If it does, update it if the information it is out of date
   # If it does not, then retrieve it from rubygems.
 
-  def self.retrieve(name)
-    if gem_info = self.where(name: name).first
-      return gem_info if gem_info.updated_at.utc > DateTime.now.utc - 1.hour
-    else
-      gem_info = GemInfo.new
-    end
-  
-    info = Gems.info name
-    gem_info.assign_attributes({name: info['name'], version: info['version'], info: info['info']}, as: :internal)
-    gem_info.save!
-    gem_info
+  def retrieve
+    return if retrieved_at && retrieved_at.utc > DateTime.now.utc - 1.hour
+    
+    rubygems_info = Gems.info name
+    new_attributes = {
+      name:         rubygems_info['name'], 
+      version:      rubygems_info['version'], 
+      info:         rubygems_info['info'],
+      retrieved_at: DateTime.now
+    }
+    update_attributes(new_attributes, as: :internal)
   end
+  handle_asynchronously :retrieve
   
-  # We want to test things without async for development
-  unless Rails.env.development?
-    class << self
-      handle_asynchronously :retrieve
+  def self.retrieve(name)
+    gem_info = GemInfo.transaction do
+      self.find_or_create_by_name(name)
     end
-  end  
+    gem_info.retrieve
+    gem_info
+  end 
 end
