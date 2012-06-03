@@ -19,4 +19,8 @@ class Audit < ActiveRecord::Base
     @local_repository_path ||= Rails.root.join("repos/#{self.id}")
   end
 
+  def rails_version
+    gems.where(name:'rails').first.details[:version]
+  end
+
 end

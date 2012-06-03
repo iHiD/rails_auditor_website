@@ -1,12 +1,12 @@
 .audit_summary
 
     .rails_version
-        Rails #{audit.gems[:rails][:version]}
+        Rails #{audit.rails_version}
         
     %h4 Gems
     %ul 
-        -audit.gems.each do |key, gem|
-            %li= gem[:name]
+        -audit.gems.each do |gem|
+            %li= gem.name
             
     %h4 Configuration
     %ul 
