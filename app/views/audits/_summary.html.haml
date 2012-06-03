@@ -1,0 +1,21 @@
+.audit_summary
+
+    .rails_version
+        Rails #{audit.gems[:rails][:version]}
+        
+    %h4 Gems
+    %ul 
+        -audit.gems.each do |key, gem|
+            %li= gem[:name]
+            
+    %h4 Configuration
+    %ul 
+        -audit.configuration.each do |key, value|
+            %li
+                = key
+                -if value.is_a? Hash
+                    %ul
+                        -value.each do |k,v|
+                            %li #{k} = #{v}
+                -else
+                    \= #{value}

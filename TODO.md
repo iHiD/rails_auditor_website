@@ -1,7 +1,7 @@
 # TODO
 
- - Parse Application.
- - Extract and save gems.
+ - ✓ Parse Application.
+ - ✓ Extract and save gems.
  - Provide information on gems.
  - Cross-reference gems against latest version.
  - Show if gem is out of date.

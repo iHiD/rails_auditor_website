@@ -11,24 +11,18 @@ describe Audit do
   end
   
   describe "parsing application" do 
-    before :each do 
-      FileUtils.cp_r(Rails.root.join("spec/applications/default_3_2_3"), @audit.local_repository_path)
-    end
-    after :each do 
-      FileUtils.rmdir(@audit.local_repository_path)
-    end
     
     it "should parse application without error" do
-      lambda{@audit.parse}.should_not raise_error
+      lambda{parse_audit(@audit)}.should_not raise_error
     end
     
     it "should set the status to queued_for_auditing" do
-      @audit.parse
+      parse_audit(@audit)
       @audit.queued_for_auditing?.should == true
     end
     
     it "should serialize and store everything" do
-      @audit.parse
+      parse_audit(@audit)
       @audit.reload
       @audit.gems.keys.length.should == 6
       @audit.configuration.keys.length.should == 4

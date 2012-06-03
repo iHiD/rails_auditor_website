@@ -3,3 +3,5 @@ audit   = project.audits.create!
 
 FileUtils.cp_r(Rails.root.join("spec/applications/default_3_2_3"), audit.local_repository_path)
 audit.parse
+audit.status_id = Audit::Status.completed
+audit.save!

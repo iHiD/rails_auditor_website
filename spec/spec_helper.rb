@@ -30,3 +30,9 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+def parse_audit(audit)
+  FileUtils.cp_r(Rails.root.join("spec/applications/default_3_2_3"), audit.local_repository_path)
+  audit.parse
+  FileUtils.rmdir(audit.local_repository_path)
+end

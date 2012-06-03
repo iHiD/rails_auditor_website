@@ -1,13 +1,11 @@
 
-%p 
-    %strong Name:
-    = @project.name
+.project_name= @project.name
     
 -if @project.audited?
 
     -audit = @project.most_recent_audit
     -if audit.completed?
-        Completed
+        =render "audits/summary", audit: audit
     -else
         .processing_audit
             Audit currently in progress...
