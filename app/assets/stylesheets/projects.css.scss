@@ -20,26 +20,26 @@ $project_bar_height: 40px;
         float:right;
     }
     .tabs {
-        border-bottom:1px solid $border_color;
-        margin-top:10px;
+        border:solid $border_color;
+        border-width:1px 0px;
+        margin-top:20px;
+        padding-left:10px;
+        overflow:hidden;
         
         a {
             text-decoration:none;
-            padding:10px 20px;
+            padding:5px 20px;
             background:$dark_color;
             color:$light_color;
             display:inline-block;
             width:100px;
             text-align:center;
             position:relative;
-            border-radius:10px 10px 0px 0px;
+            margin-right:10px;
             
             &.selected {
                 color:$dark_color;
-                background:$light_color;
-                border:solid $dark_color;
-                border-width:1px 1px 0px 1px;
-                bottom:-1px;
+                background:$darker_background_color;
             }
         }
         
@@ -48,6 +48,4 @@ $project_bar_height: 40px;
 
 #project {
     padding:10px 10px;
-    border: solid $dark_color;
-    border-width: 0px 1px 0px 1px;
 }
