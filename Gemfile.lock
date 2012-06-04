@@ -108,10 +108,16 @@ GEM
       activerecord (>= 3.0.0)
     gems (0.7.0)
     haml (3.1.4)
+    haml_coffee_assets (0.8.5)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt (>= 1.3.3)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.1)
     i18n (0.6.0)
+    jasminerice (0.0.8)
+      haml
     journey (1.0.3)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -238,6 +244,8 @@ DEPENDENCIES
   foreigner
   gems
   haml (= 3.1.4)
+  haml_coffee_assets
+  jasminerice
   jquery-rails
   mysql2
   omniauth-github
