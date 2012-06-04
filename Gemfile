@@ -24,6 +24,10 @@ gem 'delayed_job_active_record'
 gem 'haml', "3.1.4"
 gem 'jquery-rails'
 
+# Server gems
+gem "private_pub"
+gem "thin"
+
 # Data-source gems
 gem 'gems'
 
