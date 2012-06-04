@@ -1,6 +1,4 @@
 
-.project_name= @project.name
-    
 -if @project.audited?
 
     -audit = @project.most_recent_audit
@@ -13,5 +11,5 @@
             
 -else
     .no_audits
-        You have not yet run any audits on this project
-        =button_to "Run your first audit", project_audits_path(@project), method: :post
+        %p You have not yet run any audits on this project
+        %p= button_to "Run your first audit", project_audits_path(@project), method: :post

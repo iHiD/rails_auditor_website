@@ -4,12 +4,12 @@ module AuditMixins::Cloning
   
   def clone_repository
     self.status_id = Audit::Status.cloning
-    save
+    save!
     
     #... Do cloning
     
     self.status_id = Audit::Status.queued_for_parsing
-    save
+    save!
   end
 
 end
