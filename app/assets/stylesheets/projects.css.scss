@@ -20,29 +20,27 @@ $project_bar_height: 40px;
         float:right;
     }
     .tabs {
-        border:solid $border_color;
-        border-width:1px;
         margin-top:20px;
         overflow:hidden;
         
         a {
             text-decoration:none;
             padding:5px 0px;
-            background:$dark_color;
-            color:$light_color;
             float:left;
             width:150px;
             text-align:center;
             position:relative;
-            margin-right:1px;
+            margin-right:10px;
+            border:1px solid $border_color;
+            border-radius:6px;
+            
+            color:$dark_color;
+            background:$darker_background_color;
+            
             
             &.selected {
-                color:$dark_color;
-                background:$darker_background_color;
-            }
-            
-            &:last-child.selected {
-                border-right:1px solid $dark_color;
+                background:$dark_color;
+                color:$light_color;
             }
         }
         
@@ -51,6 +49,50 @@ $project_bar_height: 40px;
 
 #project {
     padding:10px 10px;
+    
+    #overview {
+        #progress {
+            .current_status {
+                margin-bottom:10px;
+            }
+            .status_stage {
+                overflow:hidden;
+                margin-bottom:5px;
+                .status {
+                    float:left;
+                    width:60px;
+                    padding:0px;
+                    font-size:10px;
+                    height:20px;
+                    line-height:20px;
+                    vertical-align:middle;
+                    margin-right:10px;
+                    text-align:center;
+                    border:1px solid #aaa;
+                    border-radius:2px;
+                }
+                .title {
+                    height:20px;
+                    line-height:20px;
+                    vertical-align:middle;
+                }
+                &.queued .status {
+                    background:red;
+                    color:white;
+                    &:before {content: "Queued";}
+                }
+                &.processing .status {
+                    background:yellow;
+                    &:before {content: "Processing";}
+                }
+                &.completed .status {
+                    background:green;
+                    color:white; 
+                    &:before {content: "Completed";}
+                }
+            }
+        }
+    }
     
     #configuration {
         #gems {

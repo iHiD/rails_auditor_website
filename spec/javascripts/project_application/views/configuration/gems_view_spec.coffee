@@ -4,10 +4,9 @@ describe "GemsViewSpec", ->
         
     it "renders gems", ->
         project = new ProjectApplication.Project()
-        project.gems.add new ProjectApplication.Gem()
-        project.gems.add new ProjectApplication.Gem()
+        project.gems.add new ProjectApplication.Gem({gem_info:{}})
+        project.gems.add new ProjectApplication.Gem({gem_info:{}})
         
         view = new ProjectApplication.ConfigurationGemsView(project.gems)
         view.render()
-        console.log view.el
         expect($(view.el).find('tbody tr').length).toEqual(2)

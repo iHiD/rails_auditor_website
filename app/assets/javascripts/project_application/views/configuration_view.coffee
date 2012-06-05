@@ -10,7 +10,7 @@ class window.ProjectApplication.ConfigurationView extends Backbone.View
         template = JST['project_application/templates/configuration']()
         $(@el).html(template)
         
-        gemsView = new ProjectApplication.ConfigurationGemsView(@project.gems)
-        @$('#gems').replaceWith(gemsView.render().el)
+        @gemsView = new ProjectApplication.ConfigurationGemsView(@project.gems)
+        @$('#gems').replaceWith(@gemsView.render().el)
         
         this

@@ -1,0 +1,14 @@
+.current_status
+    Current Status:
+    %span.status
+
+.status_stages 
+    .status_stage.cloning
+        .status 
+        .title Cloning
+    .status_stage.parsing
+        .status 
+        .title Parsing
+    .status_stage.auditing
+        .status 
+        .title Auditing
