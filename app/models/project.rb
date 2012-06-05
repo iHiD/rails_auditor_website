@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   
   has_many :audits, dependent: :destroy
 
-  def most_recent_audit    
+  def last_audit    
     unless audit = audits.order("id DESC").first
       raise NoAuditError
     end

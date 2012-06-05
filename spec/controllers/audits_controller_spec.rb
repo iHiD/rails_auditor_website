@@ -80,7 +80,7 @@ describe AuditsController do
 
       it "redirects to the created audit" do
         post :create, {:project_id => @project.id, :audit => valid_attributes}, valid_session
-        response.should redirect_to([@project, @project.audits.last])
+        response.should redirect_to(@project)
       end
     end
 

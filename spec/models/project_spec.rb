@@ -10,12 +10,12 @@ describe Project do
       audit3 = FactoryGirl.create(:audit, project: @project)
       @project.reload
     
-      @project.most_recent_audit.should == audit3
+      @project.last_audit.should == audit3
     end
     
     it "should raise an exception if there is no most recent audit" do
       @project = FactoryGirl.create(:project)
-      lambda{@project.most_recent_audit}.should raise_error(Project::NoAuditError)
+      lambda{@project.last_audit}.should raise_error(Project::NoAuditError)
     end
   end
     

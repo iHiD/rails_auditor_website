@@ -21,25 +21,28 @@ $project_bar_height: 40px;
     }
     .tabs {
         border:solid $border_color;
-        border-width:1px 0px;
+        border-width:1px;
         margin-top:20px;
-        padding-left:10px;
         overflow:hidden;
         
         a {
             text-decoration:none;
-            padding:5px 20px;
+            padding:5px 0px;
             background:$dark_color;
             color:$light_color;
-            display:inline-block;
-            width:100px;
+            float:left;
+            width:150px;
             text-align:center;
             position:relative;
-            margin-right:10px;
+            margin-right:1px;
             
             &.selected {
                 color:$dark_color;
                 background:$darker_background_color;
+            }
+            
+            &:last-child.selected {
+                border-right:1px solid $dark_color;
             }
         }
         
@@ -48,4 +51,26 @@ $project_bar_height: 40px;
 
 #project {
     padding:10px 10px;
+    
+    #configuration {
+        #gems {
+            table {
+                border-collapse:collapse;
+            }
+            th, td {
+                padding:10px 50px 10px 0px;
+                min-width:110px;
+            }
+            th {
+                border-bottom:1px solid #ccc;
+                font-weight:normal;
+                text-align:left;
+            }
+            td {
+                border:solid #eee;
+                border-width:1px 0px;
+            }
+        }
+    }
+    
 }

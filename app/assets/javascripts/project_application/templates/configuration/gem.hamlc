@@ -1,0 +1,4 @@
+%td= @gem.name
+%td= @gem.version
+%td= @gem.gem_info.version
+%td= @gem.gem_info.info

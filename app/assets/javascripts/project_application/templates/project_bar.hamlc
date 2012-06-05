@@ -1,0 +1,15 @@
+.options
+    %a{href:"/projects/#{@project.id}/edit"} edit
+%h2
+    Project: #{@project.name}
+.github_repository
+    On Github @
+    = @project.github_repository
+    \:
+    = @project.github_branch
+ 
+.tabs
+    %a.tab.overview{href: "#overview"} Overview
+    %a.tab.configuration{href: "#configuration"} Configuration
+    %a.tab.visualisation{href: "#visualisation"} Visualisation
+    %a.tab.issues{href: "#issues"} Issues

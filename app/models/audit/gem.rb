@@ -2,7 +2,7 @@
 # 
 # A record of the gem that has been found during an audit.
 class Audit::Gem < ActiveRecord::Base
-  attr_accessible :name, :details, as: :internal
+  attr_accessible :name, :version, :details, as: :internal
   
   belongs_to :audit
   belongs_to :gem_info

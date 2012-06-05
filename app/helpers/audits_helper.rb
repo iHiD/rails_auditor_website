@@ -1,5 +1,14 @@
 module AuditsHelper
   
+  def audit_json(audit)
+    audit.to_json(only: [:id, :status_id])
+  end
+  def audit_gems_json(audit)
+    audit.gems.to_json(only: [:id, :name, :version], include: {
+      gem_info: {only: [:version, :info]}
+    })
+  end
+  
   def audit_progress(audit)
     
     cloning_class = ""

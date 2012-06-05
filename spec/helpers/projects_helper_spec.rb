@@ -11,4 +11,17 @@ require 'spec_helper'
 #   end
 # end
 describe ProjectsHelper do
+  
+  describe "project_json" do
+    it "should return basic details without audit" do
+      project = FactoryGirl.create(:project)
+      helper.project_json(project).should == "{\"github_branch\":\"master\",\"github_repository\":\"ihid/rails_auditor_website\",\"id\":#{project.id},\"name\":\"Website\",\"audited?\":false}"
+    end
+    it "should return basic details and last audit" do
+      project = FactoryGirl.create(:project)
+      audit = FactoryGirl.create(:audit, project: project)
+      helper.project_json(project).should == "{\"github_branch\":\"master\",\"github_repository\":\"ihid/rails_auditor_website\",\"id\":#{project.id},\"name\":\"Website\",\"audited?\":true}"
+    end
+  end
+  
 end

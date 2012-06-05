@@ -25,7 +25,11 @@ describe Audit do
       parse_audit(@audit)
       @audit.reload
       @audit.gems.size.should == 6
-      @audit.gems.where(name: 'rails').first.details.should == {:name=>"rails", :groups=>[], :version=>"3.2.3"}
+      audit_gem = @audit.gems.where(name: 'rails').first
+      audit_gem.name.should == "rails"
+      audit_gem.version.should == "3.2.3"
+      audit_gem.details.should == {:groups=>[]}
+      
       @audit.configuration.keys.length.should == 4
     end
   

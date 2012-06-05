@@ -1,22 +1,4 @@
 =content_for :content do
-    #project_bar
-        .options
-            =link_to "edit", edit_project_path(@project)
-        %h2
-            Project: #{@project.name}
-        .github_repository
-            On Github @
-            = @project.github_repository
-            \:
-            = @project.github_branch
-            
-        .tabs
-            =link_to "Overview", "#", class: "selected"
-            =link_to "Configuration","#"
-            =link_to "Visualisation","#"
-            =link_to "Issues","#"
-        
-    #project
-        =yield
+    #project= yield
     
 =render :template => 'layouts/application'

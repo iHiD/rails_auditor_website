@@ -1,8 +1,8 @@
 class window.ProjectApplication
     sanity: -> true
     
-    constructor: ->
-        new ProjectApplication.Router()
+    constructor: (@project) ->
+        @router = new ProjectApplication.Router(@project)
         Backbone.history.start()
     
 #PrivatePub.subscribe "/projects/1", (data, channel) ->

@@ -1,17 +1,23 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the Project::AuditsHelper. For example:
-#
-# describe Project::AuditsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe AuditsHelper do
   
+  describe "audit_json" do
+    it "should return correct json" do
+      audit = FactoryGirl.create(:audit)
+      helper.audit_json(audit).should == "{\"id\":#{audit.id},\"status_id\":1}"
+    end
+  end
+  
+  describe "audit_gems_json" do
+    it "should return correct json" do
+      audit = FactoryGirl.create(:audit)
+      gem_info = FactoryGirl.create(:gem_info)
+      audit_gem = FactoryGirl.create(:audit_gem, audit: audit, gem_info: gem_info)
+      helper.audit_gems_json(audit).should == "[{\"id\":#{audit_gem.id},\"name\":\"rails\",\"version\":\"3.2.3\"}]"
+    end
+  end
+    
   describe "audit_progress" do
   
     before :each do 

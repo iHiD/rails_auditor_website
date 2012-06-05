@@ -5,6 +5,7 @@ class CreateAuditGems < ActiveRecord::Migration
       t.references :gem_info, null: false
       
       t.string :name, null: false
+      t.string :version, null: true
       t.binary :details, null: false
       
       #t.boolean :specified, null: false

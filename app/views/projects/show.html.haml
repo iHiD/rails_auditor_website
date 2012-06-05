@@ -1,4 +1,11 @@
 =subscribe_to "/projects/#{@project.id}"    
 :javascript
-    new ProjectApplication()
+    var project = new ProjectApplication.Project(#{project_json(@project)})
+
+-if @project.audited?
+    :javascript
+        project.audit = new ProjectApplication.Project(#{audit_json(@project.last_audit)})
+        project.gems = new ProjectApplication.GemsCollection(#{audit_gems_json(@project.last_audit)})
     
+:javascript    
+    var projectApp =  new ProjectApplication(project)

@@ -8,7 +8,11 @@ module AuditMixins::Parsing
     
     parser = RailsParser::Parsers::Rails::ApplicationParser.new(local_repository_path)
     parser.gems.each do |key, details|
-      self.gems.create({name: details[:name], details:details}, as: :internal)
+      details = details.dup
+      self.gems.create({name: details.delete(:name), 
+                        version: details.delete(:version),
+                        details:details
+                       }, as: :internal)
     end
     self.configuration = parser.configuration
     self.save!

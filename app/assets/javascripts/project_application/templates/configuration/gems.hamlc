@@ -1,0 +1,8 @@
+%table
+    %thead
+        %tr
+            %th Name
+            %th Your Version
+            %th Current Version
+            %th Description
+    %tbody

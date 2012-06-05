@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120603181635) do
     t.integer  "audit_id",    :null => false
     t.integer  "gem_info_id", :null => false
     t.string   "name",        :null => false
+    t.string   "version"
     t.binary   "details",     :null => false
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
