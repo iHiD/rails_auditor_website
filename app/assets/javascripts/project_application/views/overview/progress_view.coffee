@@ -17,6 +17,8 @@ class window.ProjectApplication.OverviewProgressView extends Backbone.View
         this
         
     updateStatus: ->
+        $('.status_stage').removeClass('queued processing completed')
+            
         switch @project.audit.get('status_id')
             when ProjectApplication.Audit.Status.queued_for_cloning
                 @$status.html("Queued for download.")

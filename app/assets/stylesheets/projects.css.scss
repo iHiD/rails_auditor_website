@@ -9,6 +9,7 @@ $project_bar_height: 40px;
 #project_bar {
     overflow:hidden;
     padding:10px 0px 0px 0px;
+    margin-bottom:20px;
     
     h2, .options {
         margin:0px;
@@ -52,6 +53,16 @@ $project_bar_height: 40px;
     
     #overview {
         #progress {
+            
+            background: $darker_background_color;
+            border:1px solid $dark_color;
+            padding:10px;
+            border-radius:5px;
+            
+            h3 {
+                margin-top:0px;
+            }
+            
             .current_status {
                 margin-bottom:10px;
             }

@@ -4,7 +4,7 @@
 
 -if @project.audited?
     :javascript
-        project.audit = new ProjectApplication.Project(#{audit_json(@project.last_audit)})
+        project.audit = new ProjectApplication.Audit(#{audit_json(@project.last_audit)})
         project.gems = new ProjectApplication.GemsCollection(#{audit_gems_json(@project.last_audit)})
     
 :javascript    

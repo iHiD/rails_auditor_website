@@ -1,5 +1,7 @@
+%h3 Your Project is Being Audited
+
 .current_status
-    Current Status:
+    Progress: 
     %span.status
 
 .status_stages 

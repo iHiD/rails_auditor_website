@@ -10,11 +10,17 @@ class window.ProjectApplication.OverviewView extends Backbone.View
         template = JST['project_application/templates/overview']()
         $(@el).html(template)
         
-        @updateProgress()
+        @setupAudit()
         
         this
         
-    updateProgress: ->
+    setupAudit: =>
+        @updateProgress()
+        return unless @project.audit
+        
+        @project.audit.bind "change:status_id", @updateProgress
+        
+    updateProgress: =>
         
         # If there's not yet an audit, then we don't care about this
         return unless @project.audit
