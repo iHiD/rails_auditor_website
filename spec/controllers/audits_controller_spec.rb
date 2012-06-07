@@ -49,6 +49,7 @@ describe AuditsController do
   end
 =end
 
+=begin
   describe "GET show" do
     it "assigns the requested audit as @audit" do
       audit = @project.audits.create! valid_attributes
@@ -100,8 +101,6 @@ describe AuditsController do
       end
     end
   end
-  
-=begin
 
   describe "GET edit" do
     it "assigns the requested audit as @audit" do

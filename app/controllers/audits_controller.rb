@@ -1,12 +1,33 @@
-class AuditsController < AbstractControllers::ProjectController
+class AuditsController < ApplicationController
   
-  before_filter :get_project
   
+  def gems
+    @audit = Audit.find(params[:id])
+    render json: @audit.gems.map(&:to_hash).to_json
+  end
+  
+=begin  
+before_filter :get_project
+
   def show
-    @audit = @project.audits.find(params[:id])
+    
+    # TODO - Check users here...
+    @audit = Audit.find(params[:id])
 
     respond_to do |format|
       format.html
+      format.json do
+        render json: @audit.to_json{only: [:id], include: 
+          {
+            gems: {
+              only: [:id, :name, :version], 
+              include: {
+                gem_info: {only: [:version, :info]}
+              }
+            }
+          }
+        }
+      end
     end
   end
   
@@ -29,4 +50,5 @@ class AuditsController < AbstractControllers::ProjectController
       end
     end
   end
+=end
 end

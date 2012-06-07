@@ -1,11 +1,10 @@
-=subscribe_to "/projects/#{@project.id}"    
-:javascript
-    var project = new ProjectApplication.Project(#{project_json(@project)})
-
 -if @project.audited?
+    -audit = @project.last_audit
+    =subscribe_to "/audits/#{audit.id}"
     :javascript
-        project.audit = new ProjectApplication.Audit(#{audit_json(@project.last_audit)})
-        project.gems = new ProjectApplication.GemsCollection(#{audit_gems_json(@project.last_audit)})
-    
-:javascript    
-    var projectApp =  new ProjectApplication(project)
+        // Setup the project and audit
+        var project = new ProjectApplication.Project(#{project_json(@project)})
+        project.setAudit(new ProjectApplication.Audit(project, #{audit_json(audit)}))
+        var projectApp = new ProjectApplication(project)
+        
+-else

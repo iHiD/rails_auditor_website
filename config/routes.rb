@@ -1,7 +1,10 @@
 RailsAuditorWebsite::Application.routes.draw do
   
-  resources :projects do 
-    resources :audits
+  resources :projects
+  resources :audits, only: [:show] do
+    member do
+      get :gems
+    end
   end
 
   devise_for :users

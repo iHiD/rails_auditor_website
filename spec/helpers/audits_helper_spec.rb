@@ -8,15 +8,6 @@ describe AuditsHelper do
       helper.audit_json(audit).should == "{\"id\":#{audit.id},\"status_id\":1}"
     end
   end
-  
-  describe "audit_gems_json" do
-    it "should return correct json" do
-      audit = FactoryGirl.create(:audit)
-      gem_info = FactoryGirl.create(:gem_info)
-      audit_gem = FactoryGirl.create(:audit_gem, audit: audit, gem_info: gem_info)
-      helper.audit_gems_json(audit).should == "[{\"id\":#{audit_gem.id},\"name\":\"rails\",\"version\":\"3.2.3\"}]"
-    end
-  end
     
   describe "audit_progress" do
   

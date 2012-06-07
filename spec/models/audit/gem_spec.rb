@@ -19,5 +19,11 @@ describe Audit::Gem do
       GemInfo.any_instance.should_receive(:retrieve).once
       audit_gem = FactoryGirl.create(:audit_gem)
     end
+    
+    it "should convert to hash correctly" do
+      gem_info = FactoryGirl.create(:gem_info, name: 'rails')
+      audit_gem = FactoryGirl.create(:audit_gem, name: 'rails')
+      audit_gem.to_hash.should == {:id=>audit_gem.id, :name=>"rails", :version=>"3.2.3", :gem_info=>{:info => "Some info.", :version=>"3.2.3"}}
+    end
   end
 end

@@ -1,5 +1,10 @@
 class window.ProjectApplication.Audit extends Backbone.Model
     
+    constructor: (data) ->
+        super(data)
+        @gems = new ProjectApplication.GemsCollection()
+        @gems.url = "/audits/#{@id}/gems"
+        @gems.fetch()
 
 window.ProjectApplication.Audit.Status = 
     queued_for_cloning:   1

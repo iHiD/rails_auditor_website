@@ -2,7 +2,7 @@ class window.ProjectApplication.ConfigurationGemsView extends Backbone.View
     
     id: "gems"
     
-    constructor: (@gems) ->
+    constructor: (@project) ->
         super()
     
     render: ->
@@ -11,8 +11,13 @@ class window.ProjectApplication.ConfigurationGemsView extends Backbone.View
         
         @$tbody = @$('tbody')
         
-        @gems.each (gem) =>
-            view = new ProjectApplication.ConfigurationGemView(gem)
-            @$tbody.append(view.render().el)
+        @project.audit.gems.bind "reset", =>
+            @project.audit.gems.each @renderGem
+            
+        @project.audit.gems.bind "add", @renderGem
             
         this
+        
+    renderGem: (gem) =>
+        view = new ProjectApplication.ConfigurationGemView(gem)
+        @$tbody.append(view.render().el)
